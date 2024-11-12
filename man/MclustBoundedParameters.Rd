@@ -4,7 +4,7 @@
 \alias{MclustBoundedParameters}
 \title{Recover parameters in the original scale}
 \usage{
-MclustBoundedParameters(object, nsim = 1e+06, ...)
+MclustBoundedParameters(object, nsim = 1000000, ...)
 }
 \arguments{
 \item{object}{An object of class \code{'MclustBounded'} or \code{'densityMclustBounded'}.}

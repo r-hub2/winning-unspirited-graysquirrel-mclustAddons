@@ -51,13 +51,17 @@
 
 GMMlogreturn <- function(y, ...)
 {
-  if(NCOL(y) > 1)
-    stop("Only univariate log-return distributions can be modeled!")
+  mc <- match.call()
   args <- list(...)
+  y <- na.omit(data.matrix(y))
+  varname <- deparse(mc$y)
+  if(ncol(y) > 1)
+    stop("Only univariate log-return distributions can be modeled!")
+  if(is.null(colnames(y))) colnames(y) <- varname
   modelNames <- if(is.null(args$modelNames)) "V" else args$modelNames
   G <- if(is.null(args$G)) 1:9 else args$G
-  args$modelNames <- args$G <- NULL
-  
+  args$modelNames <- args$G <- args$plot <- NULL
+
   # fit model
   mod <- do.call("densityMclust", 
                  c(list(data = y, 

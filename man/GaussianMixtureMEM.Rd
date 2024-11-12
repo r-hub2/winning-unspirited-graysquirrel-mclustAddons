@@ -9,7 +9,7 @@ GaussianMixtureMEM(
   pro,
   mu,
   sigma,
-  control = list(eps = 1e-05, maxiter = 1000, stepsize = function(t) 1 - exp(-0.1 * t),
+  control = list(eps = 0.00001, maxiter = 1000, stepsize = function(t) 1 - exp(-0.1 * t),
     denoise = TRUE, alpha = 0.01, keep.path = FALSE),
   ...
 )
